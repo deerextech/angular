@@ -3,11 +3,6 @@ import { browserHistory } from 'react-router';
 
 export default class Lynk extends React.Component{
 
-  // alternative implementation method for logout button of the future.
-
-  // onLogout(){
-  //   browserHistory.push('/')
-  // }
   render(){
     return (
       <div>
