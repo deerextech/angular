@@ -1,7 +1,19 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
-export default class Link extends React.Component{
+export default class Lynk extends React.Component{
+
+  // alternative implementation method for logout button of the future.
+
+  // onLogout(){
+  //   browserHistory.push('/')
+  // }
   render(){
-    return <p>Link to nothing! Not even a link ah hahaha</p>
+    return (
+      <div>
+        <h1>Your shrtLynk </h1>
+        <button onClick={() => {browserHistory.push('/')}}>Logout</button>
+      </div>
+    )
   }
 }
