@@ -1,4 +1,10 @@
 
-# meteor
-# that awkward moment where you change your mind about what you want to build partway through.
-# 'tis meteor + react now... just because I can.
+# meteor + react
+
+1. score-keep: just basics of metor and react..
+  - returns api list of players
+  - players are ordered by score
+  - shows basic component breakdown with react
+  - shows basic meteor setup & mongodb
+
+2. short link: bit more advanced, will have users & authentication & routing.
