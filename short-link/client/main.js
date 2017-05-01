@@ -1,14 +1,24 @@
 import {Meteor} from 'meteor/meteor';
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {Router} from 'react-router';
+import SignUpPage from './../imports/ui/SignUpPage';
+import Link from './../imports/ui/Link';
 
-class SignupPage extends React.Component{
-  render(){
-    return <p>Sign up component shall go here</p>
-  }
-}
+import {Router, Route, browserHistory} from 'react-router';
+//using browser history because the urls are cleaner then hashhistory /#/page
+
+const routes =
+(
+  <Router history={browserHistory}>
+    <Route exact path={'/links'} component={Link} />
+    <Route path={'/signup'} component={SignUpPage} />
+  </Router>
+);
+
+
+
+
 
 Meteor.startup(() =>{
-  ReactDOM.render(<SignupPage />, document.getElementById('app'));
+  ReactDOM.render(routes, document.getElementById('app'));
 })
