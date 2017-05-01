@@ -1,0 +1,21 @@
+.player{
+  align-items:center;
+  display:flex;
+  justify-content: space-between;
+  //flex + space between puts space in center so left/right divs are on left [space] right;
+}
+
+.player__name{
+font-weight:300;
+font-size:1.8rem;
+}
+
+.player__stats{
+  font-size:1.3rem;
+  font-style:italic;
+  font-weight: 300;
+}
+.player__actions{
+  //prevents buttons from shrinking.. in case there is a super long playername
+  flex-shrink:0;
+}
