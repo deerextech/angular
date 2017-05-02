@@ -14,13 +14,24 @@ import Login from './../imports/ui/Login';
 // window.browserHistory = browserHistory;
 const unauthenticedPages = ['/','/signup'];
 const authenticatedPages = ['/links'];
+
+const onEnterPublicPage = () =>{
+  if(Meteor.userId()){
+    browserHistory.push('/links');
+  }
+};
+const onEnterAuthPage = () =>{
+  if(!Meteor.userId()){
+    browserHistory.push('/')
+  }
+}
 const routes =
 (
   <Router history={browserHistory}>
-    <Route exact path={'/'} component={Login} />
-    <Route path={'/login'} component={Login} />
-    <Route path={'/links'} component={Lynk} />
-    <Route path={'/signup'} component={SignUpPage} />
+    <Route exact path={'/'} component={Login}  onEnter={onEnterPublicPage}/>
+    <Route path={'/login'} component={Login} onEnter={onEnterPublicPage} />
+    <Route path={'/links'} component={Lynk} onEnter={onEnterAuthPage} />
+    <Route path={'/signup'} component={SignUpPage} onEnter={onEnterPublicPage} />
     <Route path="*" component={NotFound} />
     {/* * is a catch all, incase user tries to go to a url that doesn't exist  */}
 
@@ -34,7 +45,7 @@ Tracker.autorun(() =>{
   const pathname = browserHistory.getCurrentLocation().pathname;
   const isUnathenticatedPage = unauthenticedPages.includes(pathname);
   const isAuthenticatedPage = authenticatedPages.includes(pathname);
-  
+
   if(isUnathenticatedPage && isAuthenticated){
     browserHistory.push('/links')
   }

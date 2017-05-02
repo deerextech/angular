@@ -33,7 +33,7 @@ export default class Login extends React.Component{
         </form>
         <Link to="/signup"> Don't have an account yet? </Link>
         <br />
-        <Link to="/links"> Shortcut for Dev. Don't forget to delete this </Link>
+        {/* <Link to="/links"> Shortcut for Dev. Don't forget to delete this </Link> */}
       </div>
     )
   }
