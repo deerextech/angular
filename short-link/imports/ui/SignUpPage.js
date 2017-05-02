@@ -20,7 +20,14 @@ export default class SignUpPage extends React.Component{
 
     //es6 Object Property Shorthand
     Accounts.createUser({email, password}, (err) =>{
-      console.log('Signup callback', err);
+      if(err){
+        this.setState({
+          error:err.reason
+        });
+      }
+      else{
+        this.setState({error: ''});
+      }
     })
   }
   render(){
@@ -28,7 +35,7 @@ export default class SignUpPage extends React.Component{
       <div>
         <h1>Join shrtLynk </h1>
 
-        {this.state.error ? <p>{this.state.error} </p> : undefined }
+        {this.state.error ? <p> {this.state.error} </p> : undefined }
 
         <form onSubmit={this.onSubmit}>
           <input type="email" ref="email" name="email" placeholder="Email" />
