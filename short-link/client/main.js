@@ -5,7 +5,7 @@ import {Tracker} from 'meteor/tracker';
 
 //exports
 import {routes, onAuthenticationChange} from '../imports/routes/routes'
-
+import '../imports/startup/simple-schema-config.js';
 import {Links} from '../imports/api/links';
 
 
@@ -17,7 +17,6 @@ Tracker.autorun(() =>{
 
 
 Meteor.startup(() =>{
-
 
   ReactDOM.render(routes, document.getElementById('app'));
 })
