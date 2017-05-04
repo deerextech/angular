@@ -1,6 +1,6 @@
 import React from 'react';
 import {Accounts} from 'meteor/accounts-base';
-import PropTypes from ' ';
+import PropTypes from 'prop-types';
 
 export default class PrivateHeader extends React.Component{
   constructor(props){

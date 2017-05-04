@@ -15,6 +15,17 @@ Tracker.autorun(() =>{
   onAuthenticationChange(isAuthenticated);
 });
 
+//Stateless functional components
+// just a function. Does not support component state.
+
+const MyComponent = () =>{
+  //this will act just like the render() in state..ful? (check teminology on that) components
+  return(
+    <div>
+      <h1>Sexy Stateless Component</h1>
+    </div>
+  )
+}
 
 Meteor.startup(() =>{
 
