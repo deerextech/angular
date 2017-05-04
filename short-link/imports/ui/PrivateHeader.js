@@ -2,27 +2,22 @@ import React from 'react';
 import {Accounts} from 'meteor/accounts-base';
 import PropTypes from 'prop-types';
 
-export default class PrivateHeader extends React.Component{
-  constructor(props){
-    super(props)
-    this.onLogout = this.onLogout.bind(this);
-  }
+//   onLogout(){
+//     Accounts.logout();
+//   }
 
-  onLogout(){
-    Accounts.logout();
-  }
-
-  render(){
-    return(
-      <div>
-      <h1>{this.props.title}</h1>
-      <button onClick={this.onLogout}>Logout</button>
-      <p>Add Link </p>
-    </div>
-    )
-  }
+const StatelessPrivateHeader = (props) =>{
+  return(
+    <div>
+    <h1>{props.title}</h1>
+    <button onClick={()=> Accounts.logout()}>Logout</button>
+    <p>Add Link </p>
+  </div>
+  )
 }
+export default StatelessPrivateHeader;
 
-PrivateHeader.propTypes ={
+
+StatelessPrivateHeader.propTypes ={
   title: PropTypes.string.isRequired
 }
