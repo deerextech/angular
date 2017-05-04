@@ -6,6 +6,7 @@ import {Tracker} from 'meteor/tracker';
 //exports
 import {routes, onAuthenticationChange} from '../imports/routes/routes'
 
+import {Links} from '../imports/api/links';
 
 
 Tracker.autorun(() =>{
@@ -14,6 +15,9 @@ Tracker.autorun(() =>{
   onAuthenticationChange(isAuthenticated);
 });
 
+
 Meteor.startup(() =>{
+
+
   ReactDOM.render(routes, document.getElementById('app'));
 })
