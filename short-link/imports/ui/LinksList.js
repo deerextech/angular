@@ -1,7 +1,12 @@
 import React from 'react';
 import {Tracker} from 'meteor/tracker';
-import {Links} from '../api/links';
 import {Meteor} from 'meteor/meteor';
+import {Session} from 'meteor/session';
+
+import {Links} from '../api/links';
+import LinksListItem from './LinksListItem';
+
+
 export default class LinksList extends React.Component{
 
 constructor(props){
@@ -13,7 +18,7 @@ constructor(props){
   componentDidMount(){
   this.linksTracker = Tracker.autorun(() =>{
     Meteor.subscribe('linksPublication');//this must match string specified in server pub
-    const links =  Links.find().fetch();
+    const links =  Links.find({visible:Session.get('showVisible')}).fetch();
     this.setState({links})
   })
 }
@@ -21,11 +26,13 @@ constructor(props){
   renderLinksListItems(){
     let links = this.state.links;
     return links.map((link)=>{
-      return <li key={link._id}>{link.url}</li>
+      // return <li key={link._id}>{link.url}</li>
+      //using spread operator to get props of link.
+      const shortUrl = Meteor.absoluteUrl(link._id);
+      return <LinksListItem key={link._id} shortUrl={shortUrl} {...link} />
     })
   }
   componentWillUnmount(){
-    console.log('umpont');
     this.linksTracker.stop();
   }
   render(){
