@@ -34,20 +34,22 @@ export default class SignUpPage extends React.Component{
   }
   render(){
     return (
-      <div>
-        <h1>Join shrtLynk </h1>
+      <div className="lightbox-view">
+        <div className="lightbox-view__box">
+          <h1>Join shrtLynk </h1>
 
-        {this.state.error ? <p> {this.state.error} </p> : undefined }
+          {this.state.error ? <p> {this.state.error} </p> : undefined }
 
-        <form onSubmit={this.onSubmit} noValidate>
-          <input type="email" ref="email" name="email" placeholder="Email" />
-          <input type="password" ref="password" name="password" placeholder="Password" />
-          <button>Create Account</button>
+          <form onSubmit={this.onSubmit} noValidate className="lightbox-view__form">
+            <input type="email" ref="email" name="email" placeholder="Email" />
+            <input type="password" ref="password" name="password" placeholder="Password" />
+            <button className="button">Create Account</button>
 
-        </form>
+          </form>
 
 
-        <Link to="/"> Have an account already? </Link>
+          <Link to="/"> Have an account already? </Link>
+        </div>
       </div>
     )
   }

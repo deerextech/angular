@@ -40,17 +40,19 @@ export default class AddLink extends React.Component{
   render(){
     return(
       <div>
-        <button onClick={()=>{this.setState({isOpen:true})}}>+ AddLink</button>
+        <button className="button" onClick={()=>{this.setState({isOpen:true})}}>+ Add Link</button>
         <Modal
           isOpen={this.state.isOpen}
           contentLabel="Add Link"
           onAfterOpen={()=> this.refs.url.focus()}
           onRequestClose={this.handleModalClose}
+          className="lightbox-view__box"
+          overlayClassName="lightbox-view lightbox-view--modal"
           >
 
           <h1>Add Link</h1>
           <p>{this.state.error ? <p>{this.state.error}</p> : undefined} </p>
-          <form onSubmit={this.onSubmit.bind(this)}>
+          <form onSubmit={this.onSubmit.bind(this)} className="lightbox-view__form">
             <input
               type="text"
               placeholder="URL here"
@@ -58,9 +60,10 @@ export default class AddLink extends React.Component{
               ref="url"
               onChange={this.onChange.bind(this)}
             />
-            <button>{this.props.AddLinkBtn}</button>
+            <button className="button">{this.props.AddLinkBtn}</button>
+            <button type="button" className="button  button--secondary" onClick={this.handleModalClose}>Cancel</button>
+
           </form>
-          <button onClick={this.handleModalClose}>Cancel</button>
         </Modal>
       </div>
     )

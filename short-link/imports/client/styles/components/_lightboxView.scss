@@ -1,0 +1,27 @@
+.lightbox-view{
+  align-items:center;
+  background:$lightboxview-overlay-bg;
+  display:flex;
+  justify-content: center;
+  height:100vh;
+  width:100vw;
+}
+
+.lightbox-view__box{
+  background-color:$lightboxview-bg;
+  padding:2.4rem;
+  text-align: center;
+  width:24rem;
+}
+.lightbox-view__form{
+  display:flex;
+  flex-direction: column;
+}
+.lightbox-view--modal{
+  background:fade-out($lightboxview-overlay-bg, .3);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}

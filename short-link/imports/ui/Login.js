@@ -30,17 +30,18 @@ export default class Login extends React.Component{
   }
   render(){
     return (
-      <div>
-        <h1>Login to shrtLynk </h1>
+      <div className="lightbox-view">
+        <div className="lightbox-view__box">
+        <h1>shrtLynk </h1>
           {this.state.error ? <p> {this.state.error} </p> : undefined }
-        <form onSubmit={this.onSubmit} noValidate>
+        <form onSubmit={this.onSubmit} noValidate className="lightbox-view__form">
           <input type="email" ref="email" name="email" placeholder="Email" />
           <input type="password" ref="password" name="password" placeholder="Password" />
-          <button>Sign in</button>
+          <button className="button">Sign in</button>
 
         </form>
         <Link to="/signup"> Don't have an account yet? </Link>
-
+      </div>
       </div>
     )
   }

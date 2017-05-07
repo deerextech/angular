@@ -39,7 +39,7 @@ constructor(props){
     return(
       <div>
         <p>Links List</p>
-        <ul>{this.renderLinksListItems()}</ul>
+        <p>{this.renderLinksListItems()}</p>
       </div>
     )
   }
